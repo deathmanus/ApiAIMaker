@@ -12,6 +12,9 @@
       <Compile Update="Forms\MainForm.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="Forms\AnswerForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>
