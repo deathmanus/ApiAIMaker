@@ -49,7 +49,9 @@ partial class MainForm
         // 
         // _cmboxJazyk
         // 
+        _cmboxJazyk.DisplayMember = "C#";
         _cmboxJazyk.FormattingEnabled = true;
+        _cmboxJazyk.Items.AddRange(new object[] { "C#", "Javascript", "Python" });
         _cmboxJazyk.Location = new System.Drawing.Point(17, 111);
         _cmboxJazyk.Name = "_cmboxJazyk";
         _cmboxJazyk.Size = new System.Drawing.Size(269, 23);

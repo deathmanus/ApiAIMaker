@@ -12,6 +12,7 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
+        _cmboxJazyk.Items.AddRange();
         
     }
 
