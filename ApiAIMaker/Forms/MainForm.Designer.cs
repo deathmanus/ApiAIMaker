@@ -37,11 +37,12 @@ partial class MainForm
         _lblJazyk = new System.Windows.Forms.Label();
         _lblURL = new System.Windows.Forms.Label();
         _lblParametry = new System.Windows.Forms.Label();
+        _btnSend = new System.Windows.Forms.Button();
         SuspendLayout();
         // 
         // _txtURL
         // 
-        _txtURL.Location = new System.Drawing.Point(17, 46);
+        _txtURL.Location = new System.Drawing.Point(17, 47);
         _txtURL.Name = "_txtURL";
         _txtURL.Size = new System.Drawing.Size(776, 23);
         _txtURL.TabIndex = 0;
@@ -59,7 +60,7 @@ partial class MainForm
         _txtBoxParametry.Location = new System.Drawing.Point(17, 170);
         _txtBoxParametry.Multiline = true;
         _txtBoxParametry.Name = "_txtBoxParametry";
-        _txtBoxParametry.Size = new System.Drawing.Size(771, 268);
+        _txtBoxParametry.Size = new System.Drawing.Size(771, 246);
         _txtBoxParametry.TabIndex = 2;
         // 
         // _lblJazyk
@@ -86,11 +87,22 @@ partial class MainForm
         _lblParametry.TabIndex = 5;
         _lblParametry.Text = "Parametry";
         // 
+        // _btnSend
+        // 
+        _btnSend.Location = new System.Drawing.Point(17, 422);
+        _btnSend.Name = "_btnSend";
+        _btnSend.Size = new System.Drawing.Size(770, 20);
+        _btnSend.TabIndex = 6;
+        _btnSend.Text = "Send";
+        _btnSend.UseVisualStyleBackColor = true;
+        _btnSend.Click += _btnSend_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(800, 450);
+        Controls.Add(_btnSend);
         Controls.Add(_lblParametry);
         Controls.Add(_lblURL);
         Controls.Add(_lblJazyk);
@@ -101,6 +113,8 @@ partial class MainForm
         ResumeLayout(false);
         PerformLayout();
     }
+
+    private System.Windows.Forms.Button _btnSend;
 
     private System.Windows.Forms.Label _lblJazyk;
     private System.Windows.Forms.Label _lblURL;
