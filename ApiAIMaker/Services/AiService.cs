@@ -24,7 +24,7 @@ namespace ApiAIMaker.Services
             _client.DefaultRequestHeaders.Add(Api_header, Api_key);
         }
 
-        public async Task<GeminiResponse>? GetAiResponse(RequestModel request)
+        private async Task<GeminiResponse>? GetAiResponse(RequestModel request)
         {
             var prompt = $"Use EXCLUSIVELY the documentation {request.WebsiteUrl} and the description {request.Description} to generate fully functional, secure, " +
                 $"idiomatic code in plain {request.Language} with no frameworks or external libraries (standard library only); the output must be CODE ONLY (no accompanying text), " +
@@ -52,6 +52,21 @@ namespace ApiAIMaker.Services
                 throw new InvalidOperationException("Failed to deserialize GeminiResponse from API response.");
             }
             return geminiResponse;
+        }
+
+        public string AiResponse(RequestModel request)
+        {
+            var aiResponse = GetAiResponse(request).Result;
+            if(aiResponse.Candidates.Count > 0)
+            {
+                var sb = new StringBuilder();
+                foreach (var part in aiResponse.Candidates[0].Content.Parts)
+                {
+                    sb.Append(part.Text);
+                }
+                return sb.ToString();
+            }
+            return string.Empty;
         }
 
     }
