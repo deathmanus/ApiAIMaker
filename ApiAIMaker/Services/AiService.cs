@@ -26,11 +26,9 @@ namespace ApiAIMaker.Services
 
         private async Task<GeminiResponse>? GetAiResponse(RequestModel request)
         {
-            var prompt = $"Use EXCLUSIVELY the documentation {request.WebsiteUrl} and the description {request.Description} to generate fully functional, secure, " +
-                $"idiomatic code in plain {request.Language} with no frameworks or external libraries (standard library only); the output must be CODE ONLY (no accompanying text), " +
-                $"with at most brief in-code comments; include all imports, handle errors (retry/backoff, timeouts, input validation), " +
-                $"add simple logging and configuration via environment variables; optionally include tests using only the standard library (e.g., unittest); " +
-                $"state any assumptions only as comments and choose the simplest solution.";
+            var prompt =
+     $"Use ONLY {request.WebsiteUrl} and {request.Description} to generate a modular, reusable {request.Language} API client (REST/GraphQL as described): config-driven base URL/endpoints/headers/auth via env/config; layered design (client/models/service); generic request executor; typed models; retries/timeouts/error mapping; input validation + basic logging. Frameworks OK. CODE ONLY; no prose/Markdown; minimal technical comments; no jokes.";
+
 
             var response = await _client.PostAsJsonAsync("", new GeminiRequest()
             {
